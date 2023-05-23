@@ -43,6 +43,8 @@ const { Recipe, Diets } = sequelize.models;
 
 // Aca vendrian las relaciones
 // Product.hasMany(Reviews);
+// Relacion muchos a muchos entre recipes y diets
+// la tabla pivote se llama dietsRecipe
 Recipe.belongsToMany(Diets, { through: 'dietsRecipe', timestamps: false });
 Diets.belongsToMany(Recipe, { through: 'dietsRecipe', timestamps: false });
 
