@@ -5,25 +5,18 @@ const {
 	getRecipeName,
 } = require('../controllers/Recipes/index');
 
-recipesRouter.get('/:idRecipe', async (req, res) => {
-	try {
-		// Recibir el id que viene por params
-		const { idRecipe } = req.params;
+const { filterRecipeById } = require('../handlers/index');
 
-		const response = await getRecipeDetail(idRecipe);
-
-		res.status(200).json(response);
-	} catch (error) {
-		res.status(500).json({ err: error.message });
-	}
-});
+recipesRouter.get('/:idRecipe', filterRecipeById);
 
 recipesRouter.get('/', async (req, res) => {
 	try {
-		const { name } = req.query;
-		if (!name) return res.status(200).send('Hola estoy en /name');
+		const name = req.query.name;
 
-		return res.status(200).send('No hay nadis');
+		const recipeData = await getRecipeName(name);
+		// console.log(recipeData);
+
+		return res.status(200).json(recipeData);
 	} catch (error) {
 		res.status(500).json({ err: error.message });
 	}
