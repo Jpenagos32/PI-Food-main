@@ -21,14 +21,14 @@ module.exports = (sequelize) => {
 				allowNull: false,
 			},
 			summary: {
-				type: DataTypes.STRING,
+				type: DataTypes.TEXT,
 				allowNull: false,
 			},
 			healthScore: {
 				type: DataTypes.STRING,
 			},
 			steps: {
-				type: DataTypes.STRING,
+				type: DataTypes.TEXT,
 			},
 		},
 		{

@@ -1,8 +1,8 @@
 const { DataTypes } = require('sequelize');
 
-const Diets = (sequelize) => {
+const Diet = (sequelize) => {
 	sequelize.define(
-		'diets',
+		'diet',
 		{
 			id: {
 				type: DataTypes.UUID,
@@ -21,4 +21,4 @@ const Diets = (sequelize) => {
 	);
 };
 
-module.exports = Diets;
+module.exports = Diet;
