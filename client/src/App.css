@@ -1,23 +1,35 @@
 html {
-  box-sizing: border-box;
-  text-align: center;
+	box-sizing: border-box;
+	text-align: center;
 }
 
-*, *:before, *:after {
-  box-sizing: inherit;
-  padding:0; 
-  margin:0;
+*,
+*:before,
+*:after {
+	box-sizing: inherit;
+	padding: 0;
+	margin: 0;
 }
 
-.darkMode{
-  background-color: #282c34;
-  color: white;
-  background-size: cover;
+.darkMode {
+	background-color: #282c34;
+	color: white;
+	background-size: cover;
 }
 
-.lightMode{
-  background-color: white;
-  color: black;
-  background-size: cover;
+.lightMode {
+	background-color: white;
+	color: black;
+	background-size: cover;
+}
 
+button {
+	border: none;
+	background-color: #f49d37;
+	padding: 10px;
+	border-radius: 10px;
+}
+
+button:hover {
+	background-color: #d17c1d;
 }

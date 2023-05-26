@@ -1,10 +1,17 @@
-// import styles from './LandingPage.module.css';
+import styles from './LandingPage.module.css';
+import LandingBg from '../../images/landing/LandingBg.jpg';
+import { Link } from 'react-router-dom';
 const LandingPage = (props) => {
 	return (
-		<div>
-			<h1>WELCOME</h1>
-			<h1>Hdenry Foods</h1>
-			<h1>hola</h1>
+		<div className={styles.container}>
+			<div className={styles.txt}>
+				<h1>WELCOME</h1>
+				<h2>Henry Foods</h2>
+				<Link to='/home'>
+					<button>Get Started</button>
+				</Link>
+			</div>
+			<img src={LandingBg} alt='Dishes' className={styles.lndngBg} />
 		</div>
 	);
 };

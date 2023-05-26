@@ -1,6 +1,11 @@
 // import { useState } from 'react';
+import {
+	Route,
+	Routes,
+} from 'react-router-dom/dist/umd/react-router-dom.development';
 import './App.css';
 import LandingPage from './components/LandingPage/LandingPage';
+import HomePage from './images/HomePage/HomePage';
 
 function App() {
 	/* 
@@ -14,7 +19,10 @@ function App() {
 	return (
 		<div>
 			{/*<button onClick={darkModeHandler}>Toggle Dark Mode</button> */}
-			<LandingPage />
+			<Routes>
+				<Route path='/' element={<LandingPage />} />
+				<Route path='/home' element={<HomePage />} />
+			</Routes>
 		</div>
 	);
 }
