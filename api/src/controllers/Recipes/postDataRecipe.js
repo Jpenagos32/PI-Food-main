@@ -1,4 +1,5 @@
 const { Recipe, Diet } = require('../../db');
+const { Op } = require('sequelize');
 
 const postDataRecipe = async (recipeObj) => {
 	const { title, summary, healthScore, steps, image, diets } = recipeObj;
@@ -14,7 +15,9 @@ const postDataRecipe = async (recipeObj) => {
 	// Obtenemos los tipos de dietas
 	let findDiets = await Diet.findAll({
 		where: {
-			name: diets,
+			name: { [Op.iLike]: `%${diets}%` },
+			// name: { [Op.in]: diets },
+			// name: diets,
 		},
 	});
 

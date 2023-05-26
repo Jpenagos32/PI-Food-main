@@ -2,8 +2,9 @@ require('dotenv').config();
 const { API_KEY } = process.env;
 const axios = require('axios');
 
+// console.log(API_KEY);
+
 const getAllApiRecipes = async () => {
-	// console.log(API_KEY);
 	try {
 		// esta peticion me trae todas las recetas de la api
 		const response = await axios.get(
