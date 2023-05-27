@@ -10,12 +10,19 @@
 }
 
 .container {
-	color: #cfcfcf;
+	color: #c3d6d5;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
 
+.container h1 {
+	color: #c3d6d5;
+}
+
+.container .txt h1 {
+	background-color: unset;
+}
 .txt {
 	font-size: 30px;
 	margin-top: 15%;

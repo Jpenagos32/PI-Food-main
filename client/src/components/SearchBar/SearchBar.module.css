@@ -1,0 +1,13 @@
+.searchBar {
+	border: none;
+	padding: 5px 15px;
+	border-radius: 15px;
+}
+
+.searchBar::after {
+	content: url('../../images/landing/LandingBg.jpg');
+	position: absolute;
+	right: 10px;
+	top: 5%;
+	transform: translateY(-5%);
+}

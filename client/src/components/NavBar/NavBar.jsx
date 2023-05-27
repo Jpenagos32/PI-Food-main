@@ -3,12 +3,10 @@ import SearchBar from '../SearchBar/SearchBar';
 
 const NavBar = (props) => {
 	return (
-		<div>
+		<div className={styles.container}>
+			<button>Soy</button>
+			<button>NavBar</button>
 			<SearchBar />
-			<div>
-				<a href='#'>soy</a>
-				<a href='#'>NavBar</a>
-			</div>
 		</div>
 	);
 };

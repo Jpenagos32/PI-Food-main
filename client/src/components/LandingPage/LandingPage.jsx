@@ -1,6 +1,7 @@
 import styles from './LandingPage.module.css';
 import LandingBg from '../../images/landing/LandingBg.jpg';
 import { Link } from 'react-router-dom';
+
 const LandingPage = (props) => {
 	return (
 		<div className={styles.container}>

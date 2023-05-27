@@ -1,8 +1,9 @@
 import Cards from '../Cards/Cards';
+import styles from './HomePage.module.css';
 
 const HomePage = (props) => {
 	return (
-		<div>
+		<div className={styles.container}>
 			<Cards />
 		</div>
 	);

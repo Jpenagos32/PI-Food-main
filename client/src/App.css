@@ -13,23 +13,38 @@ html {
 
 .darkMode {
 	background-color: #282c34;
-	color: white;
+	color: #cfcfcf;
 	background-size: cover;
 }
 
+.darkMode h1 {
+	color: #ececec;
+}
+
 .lightMode {
-	background-color: white;
-	color: black;
+	/* background-color: white; */
+	color: #555555;
 	background-size: cover;
+}
+
+.lightMode h1 {
+	color: #3e3e3e;
 }
 
 button {
 	border: none;
 	background-color: #f49d37;
-	padding: 10px;
+	padding: 5px 15px;
+	width: 100px;
+	margin: 5px;
 	border-radius: 10px;
 }
 
 button:hover {
 	background-color: #d17c1d;
+}
+
+a {
+	text-decoration: none;
+	font-size: 18px;
 }

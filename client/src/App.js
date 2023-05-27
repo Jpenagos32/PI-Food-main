@@ -17,10 +17,11 @@ function App() {
 
 	const location = useLocation();
 	return (
-		<div>
+		<div className='lightMode'>
 			{/*<button onClick={darkModeHandler}>Toggle Dark Mode</button> */}
 
 			{location.pathname !== '/' && <NavBar />}
+
 			<Routes>
 				<Route path='/' element={<LandingPage />} />
 				<Route path='/home' element={<HomePage />} />
