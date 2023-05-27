@@ -1,11 +1,9 @@
 // import { useState } from 'react';
-import {
-	Route,
-	Routes,
-} from 'react-router-dom/dist/umd/react-router-dom.development';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import LandingPage from './components/LandingPage/LandingPage';
-import HomePage from './images/HomePage/HomePage';
+import HomePage from './components/HomePage/HomePage';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
 	/* 
@@ -16,9 +14,13 @@ function App() {
 		setDarkMode(!darkMode);
 	};
  */
+
+	const location = useLocation();
 	return (
 		<div>
 			{/*<button onClick={darkModeHandler}>Toggle Dark Mode</button> */}
+
+			{location.pathname !== '/' && <NavBar />}
 			<Routes>
 				<Route path='/' element={<LandingPage />} />
 				<Route path='/home' element={<HomePage />} />
