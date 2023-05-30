@@ -12,7 +12,7 @@ const getAllApiRecipes = async () => {
 		);
 
 		const recipeData = response.data.results.map((item) => {
-			const { title, image, summary, healthScore } = item;
+			const { title, image, summary, healthScore, diets } = item;
 			return {
 				title,
 				image,
@@ -27,6 +27,9 @@ const getAllApiRecipes = async () => {
 						};
 					})
 				),
+				diets: diets.map((diet) => {
+					return { name: diet };
+				}),
 			};
 		});
 
