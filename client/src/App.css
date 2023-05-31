@@ -1,3 +1,27 @@
+:root {
+	/* Colores de fondo */
+	--blanco-crema-principal: #f5f0e5;
+	--azul-grisaceo-secundario: #c3d6d5;
+	--verde-azulado-acento: #7c9c9b;
+
+	/* Colores de textos modo claro*/
+	--claro-gris-oscuro: #3e3e3e;
+	--claro-gris-medio: #555555;
+
+	/* Color de letras modo oscuro */
+
+	--oscuro-gris-claro: #ececec;
+	--oscuro-gris-medio: #cfcfcf;
+
+	/* Colores de fondo oscuro */
+
+	--negro-intenso: #1c1c1c;
+	--fondo-gris-oscuro: #262626;
+
+	--color-boton: #f49d37;
+	--color-boton-hover: #d17c1d;
+}
+
 html {
 	box-sizing: border-box;
 	text-align: center;
@@ -33,7 +57,7 @@ html {
 
 button {
 	border: none;
-	background-color: #f49d37;
+	background-color: var(--color-boton);
 	padding: 5px 15px;
 	width: 100px;
 	margin: 5px;
@@ -41,7 +65,7 @@ button {
 }
 
 button:hover {
-	background-color: #d17c1d;
+	background-color: var(--color-boton-hover);
 }
 
 a {

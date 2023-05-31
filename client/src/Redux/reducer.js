@@ -1,7 +1,8 @@
-import { GET_RECIPES } from './actionTypes';
+import { GET_RECIPES, GET_RECIPE_DETAIL, GET_RECIPE_NAME } from './actionTypes';
 
 const initialState = {
 	recipes: [],
+	recipeDetail: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -10,6 +11,18 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				recipes: action.payload,
+			};
+
+		case GET_RECIPE_NAME:
+			return {
+				...state,
+				recipes: action.payload,
+			};
+
+		case GET_RECIPE_DETAIL:
+			return {
+				...state,
+				recipeDetail: action.payload,
 			};
 
 		default:

@@ -4,6 +4,7 @@ import './App.css';
 import LandingPage from './components/LandingPage/LandingPage';
 import HomePage from './components/HomePage/HomePage';
 import NavBar from './components/NavBar/NavBar';
+import Detail from './components/Detail/Detail';
 
 function App() {
 	/* 
@@ -15,9 +16,6 @@ function App() {
 	};
  */
 
-
-
-
 	const location = useLocation();
 	return (
 		<div className='lightMode'>
@@ -28,6 +26,7 @@ function App() {
 			<Routes>
 				<Route path='/' element={<LandingPage />} />
 				<Route path='/home' element={<HomePage />} />
+				<Route path='/detail/:id' element={<Detail />} />
 			</Routes>
 		</div>
 	);

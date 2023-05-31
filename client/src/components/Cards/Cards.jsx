@@ -18,12 +18,14 @@ const Cards = (props) => {
 		<div>
 			<div className={style.invisible}></div>
 			<div className={style.container}>
-				{allRecipes.map((recipe) => {
+				{allRecipes?.map((recipe, index) => {
 					return (
 						<Card
+							key={index}
 							img={recipe.image}
 							name={recipe.title}
 							diets={recipe.diets}
+							id={recipe.id}
 						/>
 					);
 				})}

@@ -6,7 +6,8 @@
 	align-items: center;
 	width: 100vw;
 	height: auto;
-	background-color: #7c9c9b;
+	/* background-color: #7c9c9b; */
+	background-color: var(--verde-azulado-acento);
 	position: fixed;
 	margin-bottom: 200px;
 }

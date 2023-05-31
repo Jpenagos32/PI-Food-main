@@ -1,15 +1,19 @@
+import { Link } from 'react-router-dom';
 import styles from './Card.module.css';
 
 const Card = (props) => {
-	const { name, img, diets } = props;
+	const { name, img, diets, id } = props;
+
 	return (
 		<div className={styles.container}>
 			<div className={styles.description}>
-				<h1>{name}</h1>
+				<Link to={`/detail/${id}`}>
+					<h1>{name}</h1>
+				</Link>
 				<img src={img} alt='' />
 				<div className={styles.diets}>
 					{diets.map((diet) => {
-						return <h2>{diet.name}</h2>;
+						return <span>{diet.name}, </span>;
 					})}
 				</div>
 			</div>

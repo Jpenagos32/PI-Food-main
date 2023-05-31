@@ -1,1 +1,3 @@
 export const GET_RECIPES = 'GET_RECIPES';
+export const GET_RECIPE_NAME = 'GET_RECIPE_NAME';
+export const GET_RECIPE_DETAIL = 'GET_RECIPE_DETAIL';
