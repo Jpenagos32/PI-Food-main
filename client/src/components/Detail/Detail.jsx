@@ -12,11 +12,14 @@ const Detail = (props) => {
 	const dispatch = useDispatch();
 	const [loading, setLoading] = useState(true);
 
-	// useEffect(() => {
-	// 	dispatch(actions.recipeDetail(id));
-	// }, []);
-
+	// useEffect usado para cargar una imagen mientras carga el componente
 	useEffect(() => {
+		/* 
+        TODO otra forma de hacer esto es crear un action que me resetee recipeDetail a un arreglo vacio
+        TODO y que se ejecute cuando se desmonta el componente
+        ? para simular el desmontado del componente deberia hacer un return de una cb que despache resetRecipe
+        TODO hacer esto mismo de que renderice una imagen mientras carga el componente, pero en Cards.jsx
+        */
 		setLoading(true);
 
 		const fetch = async () => {
