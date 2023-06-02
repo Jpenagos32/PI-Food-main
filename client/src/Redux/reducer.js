@@ -1,5 +1,6 @@
 import {
 	FILTER_BY_DIET,
+	GET_DIETS,
 	GET_RECIPES,
 	GET_RECIPE_DETAIL,
 	GET_RECIPE_NAME,
@@ -11,6 +12,7 @@ const initialState = {
 	recipes: [],
 	recipeDetail: [],
 	filteredRecipes: [],
+	allDiets: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -103,6 +105,12 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				recipes: recipesOrdered,
+			};
+
+		case GET_DIETS:
+			return {
+				...state,
+				allDiets: action.payload,
 			};
 
 		// TODO falta ordenar por origen de API o de BD

@@ -1,14 +1,19 @@
 import styles from './NavBar.module.css';
 import SearchBar from '../SearchBar/SearchBar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	filterByDiet,
+	getDiets,
 	orderByHealthScore,
 	orderByName,
 } from '../../Redux/actions';
+import { useLoadOnGlblState } from '../../hooks/personalizedHooks';
 
 const NavBar = (props) => {
 	const dispatch = useDispatch();
+
+	// Hook personalizado
+	const diets = useLoadOnGlblState('allDiets', getDiets);
 
 	const handleFilter = (event) => {
 		dispatch(filterByDiet(event.target.value));
@@ -28,32 +33,24 @@ const NavBar = (props) => {
 
 			<div className={styles.filterSelect}>
 				<label htmlFor='filterSelect'>Filter By Diets</label>
-				<select onChange={handleFilter} name='filter' id='filterSelect'>
-					<option selected disabled>
-						--Select--
-					</option>
+				<select
+					defaultValue='--Select--'
+					onChange={handleFilter}
+					name='filter'
+					id='filterSelect'
+				>
+					<option disabled>--Select--</option>
 					<option value='NF'>No Filter</option>
-					<option value='gluten free'>Gluten Free</option>
-					<option value='dairy free'>Dairy Free</option>
-					<option value='lacto ovo vegetarian'>
-						Lacto Ovo Vegetarian
-					</option>
-					<option value='vegan'>Vegan</option>
-					<option value='paleolithic'>Paleolithic</option>
-					<option value='primal'>Primal</option>
-					<option value='whole 30'>Whole 30</option>
-					<option value='pescatarian'>Pescatarian</option>
-					<option value='ketogenic'>Ketogenic</option>
-					<option value='fodmap friendly'>Fodmap Friendly</option>
+					{diets?.map((diet) => {
+						return <option value={diet}>{diet}</option>;
+					})}
 				</select>
 			</div>
 
 			<div className={styles.origin}>
 				<label htmlFor='origin'>Order By Origin</label>
-				<select name='origin' id='origin'>
-					<option selected disabled>
-						--Select--
-					</option>
+				<select name='origin' id='origin' defaultValue='--Select--'>
+					<option disabled>--Select--</option>
 					<option value='API'>API</option>
 					<option value='DB'>Data Base</option>
 				</select>
@@ -65,10 +62,9 @@ const NavBar = (props) => {
 					onChange={handleOrder}
 					name='orderSelect'
 					id='orderSelect'
+					defaultValue='--Select--'
 				>
-					<option selected disabled>
-						--Select--
-					</option>
+					<option disabled>--Select--</option>
 					<option value='N'>None</option>
 					<option value='A'>A - Z</option>
 					<option value='D'>Z - A</option>
@@ -81,10 +77,9 @@ const NavBar = (props) => {
 					onChange={handleOrderHealthScore}
 					name='orderHealthScore'
 					id='orderHealthScore'
+					defaultValue='--Select--'
 				>
-					<option disabled selected>
-						--Select--
-					</option>
+					<option disabled>--Select--</option>
 					<option value='N'>None</option>
 					<option value='A'>0 - 100</option>
 					<option value='D'>100 - 0</option>

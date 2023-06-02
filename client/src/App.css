@@ -87,3 +87,16 @@ input {
 	padding: var(--input-padding);
 	border: none;
 }
+
+.invisible {
+	z-index: -1;
+	margin-bottom: 20px;
+	height: 60px;
+	width: 90vw;
+}
+
+@media (max-width: 480px) {
+	.invisible {
+		margin-bottom: 65px;
+	}
+}

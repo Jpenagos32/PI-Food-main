@@ -5,6 +5,7 @@ import {
 	FILTER_BY_DIET,
 	ORDER_BY_NAME,
 	ORDER_BY_HEALTHSCORE,
+	GET_DIETS,
 } from './actionTypes';
 import axios from 'axios';
 
@@ -64,5 +65,15 @@ export const orderByHealthScore = (order) => {
 	return {
 		type: ORDER_BY_HEALTHSCORE,
 		payload: order,
+	};
+};
+
+export const getDiets = () => {
+	return async (dispatch) => {
+		const response = await axios.get(`${URL}/diets`);
+		return dispatch({
+			type: GET_DIETS,
+			payload: response.data,
+		});
 	};
 };

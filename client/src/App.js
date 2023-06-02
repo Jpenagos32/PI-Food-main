@@ -5,6 +5,7 @@ import LandingPage from './components/LandingPage/LandingPage';
 import HomePage from './components/HomePage/HomePage';
 import NavBar from './components/NavBar/NavBar';
 import Detail from './components/Detail/Detail';
+import CreateRecipe from './components/CreateRecipe/CreateRecipe';
 
 function App() {
 	/* 
@@ -27,6 +28,7 @@ function App() {
 				<Route path='/' element={<LandingPage />} />
 				<Route path='/home' element={<HomePage />} />
 				<Route path='/detail/:id' element={<Detail />} />
+				<Route path='/form' element={<CreateRecipe />} />
 			</Routes>
 		</div>
 	);

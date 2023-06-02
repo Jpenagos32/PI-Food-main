@@ -4,3 +4,4 @@ export const GET_RECIPE_DETAIL = 'GET_RECIPE_DETAIL';
 export const FILTER_BY_DIET = 'FILTER_BY_DIET';
 export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_HEALTHSCORE = 'ORDER_BY_HEALTHSCORE';
+export const GET_DIETS = 'GET_DIETS';

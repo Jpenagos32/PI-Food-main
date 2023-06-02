@@ -2,7 +2,7 @@ import Card from '../Card/Card';
 import style from './Cards.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { getRecipes } from '../../Redux/actions';
-import { useLoading } from '../../hooks/useLoading';
+import { useLoading } from '../../hooks/personalizedHooks';
 import loadingGif from '../../images/Detail/loading.gif';
 import { useState } from 'react';
 
@@ -25,7 +25,7 @@ const Cards = (props) => {
 	}
 
 	// Hook para pantalla de carga
-	const loading = useLoading(dispatch, getRecipes);
+	const loading = useLoading(getRecipes);
 
 	const nextPage = () => {
 		setCurrentPage(currentPage + 1);
@@ -41,7 +41,7 @@ const Cards = (props) => {
 
 	return (
 		<div className={style.page}>
-			<div className={style.invisible}></div>
+			<div className='invisible'></div>
 			<div className={style.pagination}>
 				<input
 					type='button'
