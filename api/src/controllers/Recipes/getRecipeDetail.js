@@ -22,8 +22,14 @@ const getRecipeDetail = async (id) => {
 				`https://api.spoonacular.com/recipes/${id}/information?apiKey=${API_KEY}&addRecipeInformation=true`
 			);
 
-			const { title, summary, healthScore, image, analyzedInstructions } =
-				response.data;
+			const {
+				title,
+				summary,
+				healthScore,
+				image,
+				analyzedInstructions,
+				diets,
+			} = response.data;
 
 			const apiRecipe = {
 				id: response.data.id,
@@ -36,6 +42,9 @@ const getRecipeDetail = async (id) => {
 						number: step.number,
 						step: step.step,
 					};
+				}),
+				diets: diets.map((diet) => {
+					return { name: diet };
 				}),
 			};
 

@@ -1,6 +1,7 @@
 import styles from './CreateRecipe.module.css';
 import { getDiets } from '../../Redux/actions';
 import { useLoadOnGlblState } from '../../hooks/personalizedHooks';
+import { Link } from 'react-router-dom';
 
 const CreateRecipe = (props) => {
 	// Hook personalizado
@@ -9,6 +10,9 @@ const CreateRecipe = (props) => {
 	return (
 		<div>
 			<div className='invisible'></div>
+			<Link to='/home'>
+				<button>Home</button>
+			</Link>
 			<h1>CREATE NEW RECIPE</h1>
 			<div className={styles.frm}>
 				<form>
