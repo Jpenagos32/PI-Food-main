@@ -20,6 +20,9 @@
 
 	--color-boton: #f49d37;
 	--color-boton-hover: #d17c1d;
+
+	--radius: 10px;
+	--input-padding: 5px 15px;
 }
 
 html {
@@ -71,4 +74,16 @@ button:hover {
 a {
 	text-decoration: none;
 	font-size: 18px;
+}
+
+select {
+	border: none;
+	padding: var(--input-padding);
+	border-radius: var(--radius);
+}
+
+input {
+	border-radius: var(--radius);
+	padding: var(--input-padding);
+	border: none;
 }

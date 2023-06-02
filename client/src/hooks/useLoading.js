@@ -1,3 +1,7 @@
+/* 
+1-useLoading : hook que permite renderizar un elemento mientras carga otro
+*/
+
 import { useState, useEffect } from 'react';
 
 export const useLoading = (dispatch, action, actionParam = null) => {

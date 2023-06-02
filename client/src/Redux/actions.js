@@ -1,4 +1,11 @@
-import { GET_RECIPES, GET_RECIPE_NAME, GET_RECIPE_DETAIL } from './actionTypes';
+import {
+	GET_RECIPES,
+	GET_RECIPE_NAME,
+	GET_RECIPE_DETAIL,
+	FILTER_BY_DIET,
+	ORDER_BY_NAME,
+	ORDER_BY_HEALTHSCORE,
+} from './actionTypes';
 import axios from 'axios';
 
 const URL = 'http://localhost:3001';
@@ -34,5 +41,28 @@ export const recipeDetail = (detailId) => {
 			type: GET_RECIPE_DETAIL,
 			payload: response.data,
 		});
+	};
+};
+
+export const filterByDiet = (diet) => {
+	return async (dispatch) => {
+		return dispatch({
+			type: FILTER_BY_DIET,
+			payload: diet,
+		});
+	};
+};
+
+export const orderByName = (order) => {
+	return {
+		type: ORDER_BY_NAME,
+		payload: order,
+	};
+};
+
+export const orderByHealthScore = (order) => {
+	return {
+		type: ORDER_BY_HEALTHSCORE,
+		payload: order,
 	};
 };

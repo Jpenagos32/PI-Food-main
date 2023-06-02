@@ -4,6 +4,16 @@
 	align-items: center;
 	padding: 5px;
 	flex-flow: wrap;
+	/* border: 1px solid black; */
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 70vw;
+	margin: auto;
 }
 
 @media (max-width: 720px) {
@@ -17,7 +27,7 @@
 	z-index: -1;
 	margin-bottom: 20px;
 	height: 60px;
-	width: 100vw;
+	width: 90vw;
 }
 
 @media (max-width: 480px) {
@@ -29,4 +39,12 @@
 .loading img {
 	width: 10%;
 	margin: auto;
+}
+
+.pagination {
+	display: flex;
+}
+
+.pagination p {
+	margin: 0 10px;
 }

@@ -1,8 +1,16 @@
-import { GET_RECIPES, GET_RECIPE_DETAIL, GET_RECIPE_NAME } from './actionTypes';
+import {
+	FILTER_BY_DIET,
+	GET_RECIPES,
+	GET_RECIPE_DETAIL,
+	GET_RECIPE_NAME,
+	ORDER_BY_HEALTHSCORE,
+	ORDER_BY_NAME,
+} from './actionTypes';
 
 const initialState = {
 	recipes: [],
 	recipeDetail: [],
+	filteredRecipes: [],
 };
 
 const reducer = (state = initialState, action) => {
@@ -11,6 +19,7 @@ const reducer = (state = initialState, action) => {
 			return {
 				...state,
 				recipes: action.payload,
+				filteredRecipes: action.payload,
 			};
 
 		case GET_RECIPE_NAME:
@@ -24,6 +33,79 @@ const reducer = (state = initialState, action) => {
 				...state,
 				recipeDetail: action.payload,
 			};
+
+		case FILTER_BY_DIET:
+			const filtered = state.filteredRecipes.filter((recipe) => {
+				return recipe.diets.some(
+					(diet) => diet.name === action.payload
+				);
+			});
+
+			return {
+				...state,
+				recipes:
+					action.payload === 'NF'
+						? [...state.filteredRecipes]
+						: filtered,
+			};
+
+		case ORDER_BY_NAME:
+			let recipesCopy = [...state.recipes];
+
+			if (action.payload === 'A') {
+				recipesCopy.sort((a, b) => {
+					const nameA = a.title.toUpperCase();
+					const nameB = b.title.toUpperCase();
+
+					if (nameA < nameB) {
+						return -1;
+					}
+
+					if (nameA > nameB) {
+						return 1;
+					}
+
+					return 0;
+				});
+			} else if (action.payload === 'D') {
+				recipesCopy.sort((a, b) => {
+					const titleA = a.title.toUpperCase();
+					const titleB = b.title.toUpperCase();
+
+					if (titleA > titleB) {
+						return -1;
+					}
+					if (titleA < titleB) {
+						return 1;
+					}
+
+					return 0;
+				});
+			} else {
+				recipesCopy = [...state.filteredRecipes];
+			}
+			return {
+				...state,
+				recipes: recipesCopy,
+			};
+
+		case ORDER_BY_HEALTHSCORE:
+			let recipesOrdered = [...state.recipes];
+
+			if (action.payload === 'A') {
+				recipesOrdered.sort((a, b) => a.healthScore - b.healthScore);
+			} else if (action.payload === 'D') {
+				recipesOrdered.sort((a, b) => b.healthScore - a.healthScore);
+			} else {
+				recipesOrdered = [...state.filteredRecipes];
+			}
+
+			return {
+				...state,
+				recipes: recipesOrdered,
+			};
+
+		// TODO falta ordenar por origen de API o de BD
 
 		default:
 			return { ...state };
