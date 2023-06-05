@@ -12,7 +12,7 @@ const Card = (props) => {
 				</Link>
 				<img src={img} alt='' />
 				<div className={styles.diets}>
-					{diets.map((diet) => {
+					{diets?.map((diet) => {
 						return <span>{diet.name}, </span>;
 					})}
 				</div>

@@ -2,7 +2,7 @@ const axios = require('axios');
 require('dotenv').config();
 const { API_KEY } = process.env;
 
-const { Recipe } = require('../../db');
+const { Recipe, Diet } = require('../../db');
 
 const getRecipeDetail = async (id) => {
 	// si el id incluye - que busque en la base de datos
@@ -10,6 +10,7 @@ const getRecipeDetail = async (id) => {
 		try {
 			const recipeDB = await Recipe.findOne({
 				where: { id: id },
+				include: { model: Diet },
 			});
 			return recipeDB;
 		} catch (error) {

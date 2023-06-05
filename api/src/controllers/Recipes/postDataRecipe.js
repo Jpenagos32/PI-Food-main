@@ -16,8 +16,6 @@ const postDataRecipe = async (recipeObj) => {
 	let findDiets = await Diet.findAll({
 		where: {
 			name: { [Op.iLike]: `%${diets}%` },
-			// name: { [Op.in]: diets },
-			// name: diets,
 		},
 	});
 

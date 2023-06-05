@@ -8,6 +8,7 @@ import {
 	orderByName,
 } from '../../Redux/actions';
 import { useLoadOnGlblState } from '../../hooks/personalizedHooks';
+import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
 	const dispatch = useDispatch();
@@ -29,7 +30,9 @@ const NavBar = (props) => {
 	return (
 		<div className={styles.container}>
 			<button>Soy</button>
-			<button>NavBar</button>
+			<Link to='/form'>
+				<button>Create Recipe</button>
+			</Link>
 
 			<div className={styles.filterSelect}>
 				<label htmlFor='filterSelect'>Filter By Diets</label>
@@ -41,8 +44,12 @@ const NavBar = (props) => {
 				>
 					<option disabled>--Select--</option>
 					<option value='NF'>No Filter</option>
-					{diets?.map((diet) => {
-						return <option value={diet}>{diet}</option>;
+					{diets?.map((diet, index) => {
+						return (
+							<option key={index} value={diet.name}>
+								{diet.name}
+							</option>
+						);
 					})}
 				</select>
 			</div>

@@ -6,6 +6,7 @@ import {
 	ORDER_BY_NAME,
 	ORDER_BY_HEALTHSCORE,
 	GET_DIETS,
+	ADD_RECIPE,
 } from './actionTypes';
 import axios from 'axios';
 
@@ -73,6 +74,16 @@ export const getDiets = () => {
 		const response = await axios.get(`${URL}/diets`);
 		return dispatch({
 			type: GET_DIETS,
+			payload: response.data,
+		});
+	};
+};
+
+export const addRecipe = (form) => {
+	return async (dispatch) => {
+		const response = await axios.post(`${URL}/recipes`, form);
+		return dispatch({
+			type: ADD_RECIPE,
 			payload: response.data,
 		});
 	};

@@ -30,13 +30,14 @@ const Detail = (props) => {
 					<h3>ID: {recipes.id}</h3>
 					<img src={recipes.image} alt='' />
 					<h3>Health Score: {recipes.healthScore}</h3>
-					{recipes.diets.map((diet) => {
+					{recipes.diets?.map((diet) => {
 						return (
 							<div className={styles.diet}>
-								<span>{diet.name}, </span>
+								<span>{diet.name} </span>
 							</div>
 						);
 					})}
+
 					<div className={styles.summary}>
 						<h2>Info: </h2>
 						<p
@@ -49,11 +50,13 @@ const Detail = (props) => {
 					<h2 className={styles.stepByStep}>
 						Step By Step Preparation:
 					</h2>
-					{recipes.steps?.map((step) => {
+					{recipes.steps.map((step, index) => {
 						return (
-							<div className={styles.stepByStep}>
+							<div key={index} className={styles.stepByStep}>
 								<h3>Step {step.number}</h3>
-								<p>{step.step}</p>
+								<ul>
+									<p>{step.step}</p>
+								</ul>
 							</div>
 						);
 					})}
