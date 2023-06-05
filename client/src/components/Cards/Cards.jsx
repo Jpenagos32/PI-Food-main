@@ -1,6 +1,6 @@
 import Card from '../Card/Card';
 import style from './Cards.module.css';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { getRecipes } from '../../Redux/actions';
 import { useLoading } from '../../hooks/personalizedHooks';
 import loadingGif from '../../images/Detail/loading.gif';
@@ -8,7 +8,6 @@ import { useState } from 'react';
 
 const Cards = (props) => {
 	const allRecipes = useSelector((state) => state.recipes);
-	const dispatch = useDispatch();
 
 	// Lógica para crear el páginado
 	const [currentPage, setCurrentPage] = useState(1);

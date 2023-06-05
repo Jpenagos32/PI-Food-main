@@ -6,3 +6,4 @@ export const ORDER_BY_NAME = 'ORDER_BY_NAME';
 export const ORDER_BY_HEALTHSCORE = 'ORDER_BY_HEALTHSCORE';
 export const GET_DIETS = 'GET_DIETS';
 export const ADD_RECIPE = 'ADD_RECIPE';
+export const FILTER_BY_ORIGIN = 'FILTER_BY_ORIGIN';

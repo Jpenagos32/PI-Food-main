@@ -1,6 +1,7 @@
 import {
 	ADD_RECIPE,
 	FILTER_BY_DIET,
+	FILTER_BY_ORIGIN,
 	GET_DIETS,
 	GET_RECIPES,
 	GET_RECIPE_DETAIL,
@@ -121,7 +122,26 @@ const reducer = (state = initialState, action) => {
 				filteredRecipes: [...state.filteredRecipes, action.payaload],
 			};
 
-		// TODO falta ordenar por origen de API o de BD
+		case FILTER_BY_ORIGIN:
+			let origin = [...state.filteredRecipes];
+
+			if (action.payload === 'API') {
+				origin = origin.filter(
+					(recipe) => !String(recipe.id).includes('-')
+				);
+			} else if (action.payload === 'DB') {
+				origin = origin.filter((recipe) =>
+					String(recipe.id).includes('-')
+				);
+			}
+
+			return {
+				...state,
+				recipes:
+					action.payload === 'NF'
+						? [...state.filteredRecipes]
+						: origin,
+			};
 
 		default:
 			return { ...state };

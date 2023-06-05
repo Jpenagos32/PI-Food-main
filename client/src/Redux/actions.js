@@ -7,6 +7,7 @@ import {
 	ORDER_BY_HEALTHSCORE,
 	GET_DIETS,
 	ADD_RECIPE,
+	FILTER_BY_ORIGIN,
 } from './actionTypes';
 import axios from 'axios';
 
@@ -85,6 +86,15 @@ export const addRecipe = (form) => {
 		return dispatch({
 			type: ADD_RECIPE,
 			payload: response.data,
+		});
+	};
+};
+
+export const filterByOrigin = (origin) => {
+	return async (dispatch) => {
+		return dispatch({
+			type: FILTER_BY_ORIGIN,
+			payload: origin,
 		});
 	};
 };

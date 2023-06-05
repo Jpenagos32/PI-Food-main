@@ -107,14 +107,7 @@ const CreateRecipe = (props) => {
 
 	const changeHandler = (event) => {
 		const value = event.target.value;
-		// if (event.target.checked) {
-		// 	setForm({ ...form, diets: [...form.diets, value] });
-		// } else {
-		// 	setForm({
-		// 		...form,
-		// 		diets: form.diets.filter((diet) => diet !== value),
-		// 	});
-		// }
+
 		setForm({ ...form, diets: [...form.diets, value] });
 	};
 

@@ -1,8 +1,9 @@
 import styles from './NavBar.module.css';
 import SearchBar from '../SearchBar/SearchBar';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
 	filterByDiet,
+	filterByOrigin,
 	getDiets,
 	orderByHealthScore,
 	orderByName,
@@ -26,6 +27,10 @@ const NavBar = (props) => {
 
 	const handleOrderHealthScore = (event) => {
 		dispatch(orderByHealthScore(event.target.value));
+	};
+
+	const handleFilterOrigin = (event) => {
+		dispatch(filterByOrigin(event.target.value));
 	};
 	return (
 		<div className={styles.container}>
@@ -55,9 +60,15 @@ const NavBar = (props) => {
 			</div>
 
 			<div className={styles.origin}>
-				<label htmlFor='origin'>Order By Origin</label>
-				<select name='origin' id='origin' defaultValue='--Select--'>
+				<label htmlFor='origin'>Filter By Origin</label>
+				<select
+					name='origin'
+					id='origin'
+					defaultValue='--Select--'
+					onChange={handleFilterOrigin}
+				>
 					<option disabled>--Select--</option>
+					<option value='NF'>No Filter</option>
 					<option value='API'>API</option>
 					<option value='DB'>Data Base</option>
 				</select>
