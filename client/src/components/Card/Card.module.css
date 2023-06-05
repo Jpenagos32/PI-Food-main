@@ -12,6 +12,7 @@
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center;
+	color: var(--claro-gris-oscuro);
 }
 
 .container .description {
@@ -29,6 +30,7 @@
 h2 {
 	font-size: 17px;
 	margin: 5px 0 0 0;
+	color: var(--claro-gris-oscuro);
 }
 
 .container img {

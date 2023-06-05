@@ -38,24 +38,26 @@ html {
 	margin: 0;
 }
 
-.darkMode {
+.darkMode,
+html {
 	background-color: #282c34;
-	color: #cfcfcf;
+	color: var(--oscuro-gris-claro);
 	background-size: cover;
 }
 
-.darkMode h1 {
-	color: #ececec;
+.darkMode h2 {
+	color: var(--oscuro-gris-claro);
 }
 
-.lightMode {
-	/* background-color: white; */
-	color: #555555;
+.lightMode,
+html {
+	background-color: var(--blanco-crema-principal);
+	color: var(--claro-gris-oscuro);
 	background-size: cover;
 }
 
-.lightMode h1 {
-	color: #3e3e3e;
+.lightMode h2 {
+	color: var(--claro-gris-oscuro);
 }
 
 button {

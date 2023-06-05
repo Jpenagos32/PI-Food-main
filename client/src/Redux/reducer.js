@@ -8,6 +8,7 @@ import {
 	GET_RECIPE_NAME,
 	ORDER_BY_HEALTHSCORE,
 	ORDER_BY_NAME,
+	TOGGLE_DARK_MODE,
 } from './actionTypes';
 
 const initialState = {
@@ -15,6 +16,7 @@ const initialState = {
 	recipeDetail: [],
 	filteredRecipes: [],
 	allDiets: [],
+	darkMode: false,
 };
 
 const reducer = (state = initialState, action) => {
@@ -141,6 +143,12 @@ const reducer = (state = initialState, action) => {
 					action.payload === 'NF'
 						? [...state.filteredRecipes]
 						: origin,
+			};
+
+		case TOGGLE_DARK_MODE:
+			return {
+				...state,
+				darkMode: !state.darkMode,
 			};
 
 		default:

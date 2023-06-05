@@ -6,6 +6,7 @@ import HomePage from './components/HomePage/HomePage';
 import NavBar from './components/NavBar/NavBar';
 import Detail from './components/Detail/Detail';
 import CreateRecipe from './components/CreateRecipe/CreateRecipe';
+import { useSelector } from 'react-redux';
 
 function App() {
 	/* 
@@ -15,13 +16,16 @@ function App() {
 	const darkModeHandler = () => {
 		setDarkMode(!darkMode);
 	};
+
+TODO suscribir este componente al estado global darkMode	
  */
+
+	const darkMode = useSelector((state) => state.darkMode);
 
 	const location = useLocation();
 	return (
-		<div className='lightMode'>
-			{/*<button onClick={darkModeHandler}>Toggle Dark Mode</button> */}
-
+		// TODO si es false el darkMode que classname sea lightMode de lo contrario que sea darkMode
+		<div className={darkMode ? 'darkMode' : 'lightMode'}>
 			{location.pathname !== '/' && <NavBar />}
 
 			<Routes>

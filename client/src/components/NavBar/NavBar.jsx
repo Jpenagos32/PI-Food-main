@@ -1,18 +1,21 @@
 import styles from './NavBar.module.css';
 import SearchBar from '../SearchBar/SearchBar';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
 	filterByDiet,
 	filterByOrigin,
 	getDiets,
 	orderByHealthScore,
 	orderByName,
+	toggleDarkMode,
 } from '../../Redux/actions';
 import { useLoadOnGlblState } from '../../hooks/personalizedHooks';
 import { Link } from 'react-router-dom';
 
 const NavBar = (props) => {
 	const dispatch = useDispatch();
+
+	const darkMode = useSelector((state) => state.darkMode);
 
 	// Hook personalizado
 	const diets = useLoadOnGlblState('allDiets', getDiets);
@@ -32,9 +35,16 @@ const NavBar = (props) => {
 	const handleFilterOrigin = (event) => {
 		dispatch(filterByOrigin(event.target.value));
 	};
+
+	const handleClick = (event) => {
+		event.preventDefault();
+		dispatch(toggleDarkMode());
+	};
 	return (
 		<div className={styles.container}>
-			<button>Soy</button>
+			<button onClick={handleClick}>
+				Toggle {darkMode ? 'Light Mode' : 'Dark Mode'}
+			</button>
 			<Link to='/form'>
 				<button>Create Recipe</button>
 			</Link>

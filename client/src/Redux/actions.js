@@ -8,6 +8,7 @@ import {
 	GET_DIETS,
 	ADD_RECIPE,
 	FILTER_BY_ORIGIN,
+	TOGGLE_DARK_MODE,
 } from './actionTypes';
 import axios from 'axios';
 
@@ -96,5 +97,11 @@ export const filterByOrigin = (origin) => {
 			type: FILTER_BY_ORIGIN,
 			payload: origin,
 		});
+	};
+};
+
+export const toggleDarkMode = () => {
+	return {
+		type: TOGGLE_DARK_MODE,
 	};
 };

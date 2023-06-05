@@ -118,7 +118,7 @@ const CreateRecipe = (props) => {
 				<button>Home</button>
 			</Link>
 			<h1>CREATE NEW RECIPE</h1>
-			<div className={styles.frm}>
+			<div className={`${styles.frm}`}>
 				<form onSubmit={handleSubmit}>
 					<div className={`${styles.inpt}`}>
 						<label htmlFor='title'>Recipe Name</label>
@@ -255,6 +255,8 @@ const CreateRecipe = (props) => {
 					</div>
 				</form>
 			</div>
+			<div className='invisible'></div>
+			<div className='invisible'></div>
 		</div>
 	);
 };
