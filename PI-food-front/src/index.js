@@ -12,7 +12,7 @@ import axios from 'axios';
 // axios.defaults.baseURL = 'http://localhost:3001';
 
 // ? PARA ENTORNO DE PRODUCCIÓN:
-axios.defaults.baseURL = 'https://pi-food-back-production-b752.up.railway.app';
+axios.defaults.baseURL = 'https://food-recipes.adaptable.app/';
 
 ReactDOM.render(
 	<React.StrictMode>
